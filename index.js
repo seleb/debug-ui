@@ -1,9 +1,7 @@
-const debugEl = document.createElement('div');
-debugEl.style.position = 'absolute';
-debugEl.style.top = 0;
-debugEl.style.left = 0;
-debugEl.style.color = 'white';
-debugEl.style.background = 'rgba(0,0,0,0.5)';
+import './style.css';
+
+const debugEl = document.createElement('aside');
+debugEl.className = 'debug-ui';
 const listEl = document.createElement('ul');
 debugEl.appendChild(listEl);
 const debug = {};

@@ -32,6 +32,10 @@ function lazyInit() {
 	}
 }
 
+function stopPropagation(event) {
+	event.stopPropagation();
+}
+
 export default function(name, getter, setter) {
 	lazyInit();
 	const el = document.createElement('li');
@@ -52,6 +56,7 @@ export default function(name, getter, setter) {
 	if (type === 'number') {
 		input.type = 'number';
 		input.onchange = ({ currentTarget: { value } }) => setter(parseFloat(value));
+		input.onkeydown = input.onkeyup = stopPropagation;
 		update = current => input.value = current;
 		if (!setter) {
 			input.readOnly = input.disabled = true;
@@ -72,6 +77,7 @@ export default function(name, getter, setter) {
 	} else if (type === 'string') {
 		input.type = 'text';
 		input.onchange = ({ currentTarget: { value } }) => setter(value);
+		input.onkeydown = input.onkeyup = stopPropagation;
 		update = current => input.value = current;
 		if (!setter) {
 			input.readOnly = input.disabled = true;

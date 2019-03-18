@@ -4,7 +4,9 @@
 	left: 0;
 	background: rgba(0, 0, 0, 0.5);
 	color: white;
-	padding: 0.1em;
+	padding: 1em;
+	resize: both;
+	overflow: auto;
 }
 
 .debug-ui ul {
@@ -27,3 +29,12 @@
 	margin-left: 0.5em;
 }
 
+.debug-ui input[type=checkbox],
+.debug-ui input[type=button] {
+	margin: 0;
+	cursor: pointer;
+}
+
+.debug-ui input[disabled] {
+	cursor: not-allowed;
+}

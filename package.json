@@ -1,0 +1,30 @@
+{
+  "name": "debug-ui",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./dist/index.js",
+  "module": "./dist/bundle.js",
+  "keywords": [
+    "debug",
+    "ui"
+  ],
+  "author": "Sean S. LeBlanc",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:seleb/debug-ui.git"
+  },
+  "scripts": {
+    "build": "rollup -c",
+    "prepare": "npm run build"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@babel/core": "^7.3.4",
+    "@babel/preset-env": "^7.3.4",
+    "rollup": "^1.4.1",
+    "rollup-plugin-babel": "^4.3.2",
+    "rollup-plugin-commonjs": "^9.2.1",
+    "rollup-plugin-terser": "^4.0.4"
+  }
+}

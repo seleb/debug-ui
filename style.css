@@ -13,6 +13,17 @@
 	padding: 0;
 }
 
-.debug-ui label > * {
+.debug-ui label {
+	display: flex;
+    align-items: center;
+}
+
+.debug-ui label > span:first-child {
+	flex: none;
+}
+
+.debug-ui label > input {
+	flex: auto;
 	margin-left: 0.5em;
 }
+

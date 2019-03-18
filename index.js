@@ -1,13 +1,16 @@
 import './style.css';
 
-const debugEl = document.createElement('aside');
-debugEl.className = 'debug-ui';
-const listEl = document.createElement('ul');
-debugEl.appendChild(listEl);
-const debug = {};
-document.body.appendChild(debugEl);
+let debugEl;
+let listEl;
+let debug;
 
-export function init() {
+function init() {
+	debugEl = document.createElement('aside');
+	debugEl.className = 'debug-ui';
+	listEl = document.createElement('ul');
+	debugEl.appendChild(listEl);
+	debug = {};
+	document.body.appendChild(debugEl);
 	function update() {
 		Object.values(debug).forEach(({ update }) => {
 			update();
@@ -21,7 +24,16 @@ export function init() {
 	updateLoop();
 }
 
-export function debugValue(name, getter, setter) {
+let inited = false;
+function lazyInit() {
+	if (!inited) {
+		init();
+		inited = true;
+	}
+}
+
+export default function(name, getter, setter) {
+	lazyInit();
 	const el = document.createElement('li');
 	const label = document.createElement('label');
 	const text = document.createElement('span');

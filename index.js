@@ -23,10 +23,10 @@ function init() {
 	}
 	label.appendChild(panel);
 	listEl = panel;
-	debug = {};
+	debug = [];
 	document.body.appendChild(debugEl);
 	function update() {
-		Object.values(debug).forEach(({ update }) => {
+		debug.forEach(({ update }) => {
 			update();
 		});
 	}
@@ -134,7 +134,8 @@ export default function add(name, getter, setter) {
 	update(initial);
 	label.appendChild(input);
 
-	const entry = debug[name] = {
+	debug.push({
+		name,
 		update: () => {
 			const current = getter();
 			if (prev === current) {
@@ -143,6 +144,6 @@ export default function add(name, getter, setter) {
 			update(current);
 			prev = current;
 		},
-	};
+	});
 	listEl.appendChild(el);
 }

@@ -24,8 +24,8 @@ export default {
 		babel(),
 		commonjs(),
 		terser(),
-		postcss({
-		  plugins: [],
+		terser({
 		}),
+		postcss(),
 	],
 }

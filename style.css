@@ -4,27 +4,64 @@
 	left: 0;
 	background: rgba(0, 0, 0, 0.5);
 	color: white;
+	text-shadow:
+		1px 0 0 black,
+		-1px 0 0 black,
+		0 1px 0 black,
+		0 -1px 0 black;
 	padding: 1em;
+	padding-left: 0;
 	resize: both;
 	overflow: auto;
+	font-size: 75%;
+	max-height: 100%;
 }
 
 .debug-ui ul {
 	list-style: none;
 	margin: 0;
 	padding: 0;
+	margin-left: 0.5em;
+	border-left: solid white 1px;
+	padding-left: 0.5em;
+}
+
+.debug-ui .collapsible {
+	font-weight: bold;
+	cursor: ns-resize;
+}
+
+.debug-ui .collapsible:not(.collapsed) {
+	flex-direction: column;
+	align-items: flex-start;
+}
+
+.debug-ui .collapsible::after {
+	content: '⏶'
+}
+
+.debug-ui .collapsed::after {
+	content: '⏷'
+}
+
+.debug-ui .collapsed>ul {
+	display: none;
 }
 
 .debug-ui label {
 	display: flex;
-    align-items: center;
+	align-items: center;
 }
 
-.debug-ui label > span:first-child {
+.debug-ui label:hover>span {
+	background: rgba(255, 255, 255, 0.2);
+}
+
+.debug-ui label>span:first-child {
 	flex: none;
 }
 
-.debug-ui label > input {
+.debug-ui label>input {
 	flex: auto;
 	margin-left: 0.5em;
 }

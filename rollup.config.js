@@ -21,11 +21,11 @@ export default {
 		format: 'iife',
 	}],
 	plugins: [
-		babel(),
 		commonjs(),
-		terser(),
 		terser({
+			mangle: false,
 		}),
+		babel(),
 		postcss(),
 	],
 }
